@@ -8,6 +8,10 @@
 import Foundation
 import Vapor
 
-struct GoogleCaptchaResponse: Content {
+public struct GoogleCaptchaResponse: Content {
     var success: Bool?
+    var score: Double?
+    var action: String?
+    var hostename: String?
+    var challenge_ts : Date?
 }

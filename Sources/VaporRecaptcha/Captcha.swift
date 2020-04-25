@@ -18,7 +18,7 @@ public struct Captcha: Service {
         self.client = client
     }
     
-    public func validate(captchaFormResponse: String) throws -> Future<Bool> {
+    public func validate(captchaFormResponse: String) throws -> Future<GoogleCaptchaResponse> {
         let requestData = GoogleCaptchaRequest(secret: config.secretKey, response: captchaFormResponse)
         
         let request = client.post(endpoint) { req in
@@ -28,7 +28,7 @@ public struct Captcha: Service {
         return request.flatMap { response in
             return try response.content.decode(GoogleCaptchaResponse.self)
         }.map { response in
-            return response.success ?? false
+            return response
         }
     }
 }
