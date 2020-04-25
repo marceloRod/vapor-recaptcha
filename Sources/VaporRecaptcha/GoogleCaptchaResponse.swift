@@ -9,9 +9,9 @@ import Foundation
 import Vapor
 
 public struct GoogleCaptchaResponse: Content {
-    var success: Bool?
-    var score: Double?
-    var action: String?
-    var hostename: String?
-    var challenge_ts : Date?
+    public var success: Bool?
+    public var score: Double?
+    public var action: String?
+    public var hostename: String?
+    public var challenge_ts : Date?
 }
